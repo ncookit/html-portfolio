@@ -1,0 +1,35 @@
+html {display: flex; justify-content: center;}
+body {
+    background-color: whitesmoke;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+td {
+    display:inline-block;
+    width:100px;
+    text-align: center;
+}
+
+td.left {
+    text-align: left;
+}
+td.right {
+    text-align: right;
+}
+
+
+/*define new font to use*/
+@font-face {
+    font-family: SuperMario;
+    src: url(../images/Super\ Mario\ 256.ttf) format("opentype");
+}
+
+/*select font based on id */
+#start, #go {font-family: "SuperMario"}
+
+/*element.class element*/
+tr.question {
+    width: 40px;
+    font-family: "SuperMario";
+    font-size: 2em}

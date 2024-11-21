@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Math Flash Cards</title>
+<link rel="stylesheet" href="./src/flashcard.css">
+<script src="./src/flashcard.js"></script>
+</head>
+
+<!---   -->
+
+<body>
+<table>
+  <tr>
+    <td></td>
+    <td></td>
+    <td class="center">
+      <span><input type="button" id="start" autofocus 
+      value="Start" onclick="btn_start();"></span></td>
+  </tr>
+  <tr><td>&nbsp;</td></tr>
+  </tr>
+  <tr class="question">
+    <td><span id="num1">?</span></td>
+    <td><span id="op1">?</span></td>
+    <td><span id="num2">?</span></td>
+    <td>=</td>
+    <td class="right"><input type="text" id="ans" size="5"></td>
+    <td class="left"><input type="button" id="go" value="Go!" onclick="btn_go()"></td>
+  </tr>
+  <tr>
+    <td>Last Answer:</td>
+    <td><span><output id="lastAnswer">None</output></span></td>
+    <td><span><img src="./images/img_start.png" 
+      id="lastAnswerpic" alt=""
+      width="50" height="50"></span></td>
+  </tr>
+  <tr>
+    <td>Correct:</td>
+    <td><span id="correct">0</span></td>
+    <td></td>
+    <td>Level:</td>
+    <td><span class="left"><input type="number" id="level"
+      min="1" max="4" step="1" value="4" required></span></td>
+  </tr>
+  <tr>
+    <td>Incorrect:</td>
+    <td><span id="incorrect">0</span></td>
+    <td></td>
+    <td>Neg#:</td>
+    <td><span class="left"><input type="checkbox" id="negbox" name="neg"></span></td>
+  </tr>
+  <tr>
+    <td>Total:</td>
+    <td><span id="total">0</span></td>
+    <td></td>
+    <td>Division:</td>
+    <td><span class="left"><input type="checkbox" id="divbox" name="div"></span></td>
+  </tr>
+  <tr>
+    <td>&nbsp</td>
+  </tr>
+  <tr>
+    <td>Log:</td>
+    <td colspan="4"><textarea id="log" readonly
+       rows="10" cols="40" 
+       maxlength="150">
+        </textarea>
+      </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+
+
+<!-- element for debug messages-->
+<p id="debug"></p>
+
+</body>
+</html>
