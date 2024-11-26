@@ -15,30 +15,46 @@ function start(){
     var num1;
     var num2;
     var op1;
-    var ops="+-x";
+    var ops=""; //holds operators. Add below.
     var max = 3; //each level is extended by 3 numbers
     var neg = [-1,1];
     var neg1 = 1; //default index
     var neg2 = 1; //default index
 
-    level = document.getElementById("level").value; //level choice
+    var box = "";
+
+    var level = document.getElementById("level").value; //level choice
 
     //generate two random numbers within the level range
     num1 = getRandomInt(level * max);
     num2 = getRandomInt(level * max);
 
     //check for Negative numbers. 50% chance each number is negative
-    var negbox = document.getElementById("negbox").checked;  //boolean
-    if (negbox == true){
+    box = document.getElementById("negbox").checked;  //boolean
+    if (box == true){
         index = Math.floor(Math.random() * neg.length);
         neg1 = neg1*neg[index];
         index = Math.floor(Math.random() * neg.length);
         neg2 = neg2*neg[index];
     }
-
+    //check for Addition as operator. Add it if selected
+    box = document.getElementById("addbox").checked; //boolean
+    if (box == true){
+        ops+="+";
+    }
+    //check for Subtraction as operator. Add it if selected
+    box = document.getElementById("subbox").checked; //boolean
+    if (box == true){
+        ops+="-";
+    }    
+    //check for Multiplication as operator. Add it if selected.
+    box = document.getElementById("multbox").checked; //boolean
+    if (box == true){
+        ops+="x";
+    }
     //check for Division as operator. Add it if selected.
-    var divbox = document.getElementById("divbox").checked; //boolean
-    if (divbox == true){
+    box = document.getElementById("divbox").checked; //boolean
+    if (box == true){
         ops+="/";
         //document.getElementById("debug").innerHTML=ops;
     }
@@ -89,6 +105,16 @@ function btn_start(form) {
 
 
 /*
+*  parse through mandatory checkboxes (class=="ops")
+*  returns True if at least one checked, False otherwise
+*/
+function atLeastOneCheckboxIsChecked(){
+    const checkboxes = Array.from(document.querySelectorAll(".ops"));
+    return checkboxes.reduce((acc, curr) => acc || curr.checked, false);
+}
+
+
+/*
 *  when user clicks "Go!", check their answer against the provided question
 *   and update screen counters
 *   
@@ -97,7 +123,7 @@ function btn_start(form) {
     clear input from Entry
     update math question on Labels based on Level
 */
-function btn_go(){
+function btn_go(form){
     var num1 = parseFloat(document.getElementById("num1").innerHTML);
     var num2 = parseFloat(document.getElementById("num2").innerHTML);
     var op1 = document.getElementById("op1").innerHTML;
@@ -107,6 +133,10 @@ function btn_go(){
     //only update if entry box has valid numbers
     if (isNaN(num1)){
         alert("Please press START");
+
+    } else if (!atLeastOneCheckboxIsChecked()){
+        alert("Please check an operation");
+
 
     } else if (isNaN(ans) == false){
         //determine correct answer

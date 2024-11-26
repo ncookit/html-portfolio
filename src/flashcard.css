@@ -12,10 +12,11 @@ td {
 }
 
 td.left {
-    text-align: left;
+    text-align: center;
 }
 td.right {
     text-align: right;
+   
 }
 
 
@@ -32,4 +33,4 @@ td.right {
 tr.question {
     width: 40px;
     font-family: "SuperMario";
-    font-size: 2em}
+    font-size: 4em}

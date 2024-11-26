@@ -21,46 +21,53 @@
   </tr>
   <tr><td>&nbsp;</td></tr>
   </tr>
-  <tr class="question">
-    <td><span id="num1">?</span></td>
-    <td><span id="op1">?</span></td>
-    <td><span id="num2">?</span></td>
-    <td>=</td>
-    <td class="right"><input type="text" id="ans" size="5"></td>
-    <td class="left"><input type="button" id="go" value="Go!" onclick="btn_go()"></td>
-  </tr>
-  <tr>
-    <td>Last Answer:</td>
-    <td><span><output id="lastAnswer">None</output></span></td>
-    <td><span><img src="./images/img_start.png" 
-      id="lastAnswerpic" alt=""
-      width="50" height="50"></span></td>
-  </tr>
-  <tr>
-    <td>Correct:</td>
-    <td><span id="correct">0</span></td>
-    <td></td>
-    <td>Level:</td>
-    <td><span class="left"><input type="number" id="level"
-      min="1" max="4" step="1" value="4" required></span></td>
-  </tr>
-  <tr>
-    <td>Incorrect:</td>
-    <td><span id="incorrect">0</span></td>
-    <td></td>
-    <td>Neg#:</td>
-    <td><span class="left"><input type="checkbox" id="negbox" name="neg"></span></td>
-  </tr>
-  <tr>
-    <td>Total:</td>
-    <td><span id="total">0</span></td>
-    <td></td>
-    <td>Division:</td>
-    <td><span class="left"><input type="checkbox" id="divbox" name="div"></span></td>
-  </tr>
-  <tr>
-    <td>&nbsp</td>
-  </tr>
+  <form>
+    <tr class="question">
+      <td><span id="num1">?</span></td>
+      <td><span id="op1">?</span></td>
+      <td><span id="num2">?</span></td>
+      <td>=</td>
+      <td class="right"><input type="text" id="ans" size="1" style="font-size:42pt;"></td>
+      <td class="left"><input type="button" id="go" value="Go!" onclick="btn_go(this.form)"></td>
+    </tr>
+    <tr>
+      <td>Last Answer:</td>
+      <td><span><output id="lastAnswer">None</output></span></td>
+      <td><span><img src="./images/img_start.png" 
+        id="lastAnswerpic" alt=""
+        width="50" height="50"></span></td>
+    </tr>
+    <tr>
+      <td>Correct:</td>
+      <td><span id="correct">0</span></td>
+      <td></td>
+      <td>Level:</td>
+      <td><span class="left"><input type="number" id="level"
+        min="1" max="4" step="1" value="4" required></span></td>
+    </tr>
+    
+    <tr>
+      <td>Incorrect:</td>
+      <td><span id="incorrect">0</span></td>
+      <td></td>
+      <td><span class="right"><input type="checkbox" id="multbox" class="ops" checked required>Multiply</span></td>
+      <td><span class="left"><input type="checkbox" id="divbox" class="ops" required>Divide</span></td>
+    </tr>
+    <tr>
+      <td>Total:</td>
+      <td><span id="total">0</span></td>
+      <td></td>
+      <td><span class="right"><input type="checkbox" id="addbox" class="ops" checked required>Addition</span></td>
+      <td><span class="left"><input type="checkbox" id="subbox" class="ops" checked required>Subtraction</span></td>
+    </tr>
+    <tr>
+      <td>&nbsp</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td><span class="right"><input type="checkbox" id="negbox" name="neg">Neg#</span></td>
+    </tr>
+  </form>
   <tr>
     <td>Log:</td>
     <td colspan="4"><textarea id="log" readonly
