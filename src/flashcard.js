@@ -90,8 +90,13 @@ function btn_start(form) {
     //empty log
     document.getElementById("log").innerHTML = "";
 
-    //update question
-    start();
+    //update question if operation selected
+    if (!atLeastOneCheckboxIsChecked()){
+        alert("Please check an operation");
+    } else {
+        start();
+    }
+    
 
     //clear out user answer
     document.getElementById("ans").value="";
